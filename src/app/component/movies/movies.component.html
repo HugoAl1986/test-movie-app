@@ -1,0 +1,54 @@
+<div class="container-fluid pt-2">
+  <div class="row">
+    <div *ngFor="let movie of movieList" class="col-xs-12 col-sm-4 pb-4">
+      <div class="card-movie d-flex">
+        <div class="card-header p-2 d-flex flex-wrap">
+          <div class="card-title ml-1">
+            <h3 class="mb-0">{{ movie.primaryTitle }}</h3>
+            <p>Original title : {{ movie.originalTitle }}</p>
+          </div>
+          <img
+            class="img-responsive align-self-start"
+            src="../../../assets/icons/icon_pencil.svg"
+            alt="icon modify"
+          />
+          <div class="card-content col-12 d-flex flex-wrap">
+            <div class="card-datas col-2 m-1">
+              <span class="text-center d-block">ID</span>
+              <span class="text-center d-block">{{ movie.id }}</span>
+            </div>
+            <div class="card-datas col-2 m-1">
+              <span class="text-center d-block">Minutes</span>
+              <span class="text-center d-block">{{
+                movie.runtimeMinutes
+              }}</span>
+            </div>
+            <div class="card-datas col-2 m-1">
+              <span class="text-center d-block">Start year</span>
+              <span class="text-center d-block">{{ movie.startYear }}</span>
+            </div>
+            <div class="card-datas col-2 m-1">
+              <span class="text-center d-block">End year</span>
+              <span class="text-center d-block">{{ movie.endYear == "\\N" ? "--" : movie.endYear }}</span>
+            </div>
+            <div class="card-datas col-2 m-1">
+              <span class="text-center d-block">is adult</span>
+              <span class="text-center d-block">{{ movie.isAdult }}</span>
+            </div>
+            <div class="card-datas col-2 m-1">
+              <span class="text-center d-block">Genres</span>
+              <span class="text-center d-block">{{ movie.genres }}</span>
+            </div>
+          </div>
+        </div>
+        <div class="card-picture d-flex flex-wrap flex-row pl-2 pr-2">
+          <img
+            class="img-responsive"
+            src="../../../assets/icons/icon_poster.svg"
+            alt="Icon poster"
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,33 @@
+@import "../sass/variables_custom";
+
+.navbar{
+    padding:0;
+}
+
+.bg-gradient{
+    background-image: $gradient;
+}
+
+form{
+    flex-basis:30%;
+    input{
+        border:none;
+        border-radius: 0;
+        font-size: 12pt;
+        width:100%;
+        height:$input-height-span;
+        font-style: italic;
+        padding:0.2rem 0.3rem !important;
+    }
+    div{
+        flex-wrap:nowrap;
+    }
+    span{
+        border-bottom-right-radius: 0;
+        border-top-right-radius: 0;
+        background-color:white;
+        margin-left:0;
+        border:0;
+        height:$input-height-span;
+    }
+}
