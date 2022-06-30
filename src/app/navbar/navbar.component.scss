@@ -23,11 +23,15 @@ form{
         flex-wrap:nowrap;
     }
     span{
-        border-bottom-right-radius: 0;
-        border-top-right-radius: 0;
+        border-radius:0;
         background-color:white;
         margin-left:0;
         border:0;
         height:$input-height-span;
+    }
+    button{
+        border:none;
+        height:25px;
+        background-color:$bg-color-form;
     }
 }

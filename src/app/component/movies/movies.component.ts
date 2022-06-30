@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
+import { map } from 'rxjs';
 import { MoviesService } from 'src/app/service/movies.service';
-import { Movie } from 'src/app/model/movie';
+
+
 
 
 @Component({
@@ -10,12 +12,13 @@ import { Movie } from 'src/app/model/movie';
 })
 export class MoviesComponent implements OnInit {
 
-  movieList:Movie[];
+  movieList:any = [];
 
   constructor(private service: MoviesService) { }
 
   ngOnInit(): void {
-    this.movieList = this.service.getMovies();
-  }
-
+    this.service.getMovies().pipe(map(
+      data => this.movieList.push(data)
+    )).subscribe()
+}
 }

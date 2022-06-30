@@ -4,17 +4,19 @@
       <a class="navbar-brand mt-2 mb-2" href="#">
         <img src="../../assets/icons/logo.svg" alt="Logo" />
       </a>
-      <form class="ms-2 mt-2 mb-2" role="search">
+      <form class="ms-2 mt-2 mb-2" (ngSubmit)="onSubmitForm()">
         <div class="input-group">
           <input
             class="form-control"
             type="search"
             placeholder="Search a movie ..."
             aria-label="Search"
+            name="title"
+            [(ngModel)]="title"
           />
-          <span class="input-group-text" id="basic-addon1"
-            ><img src="../../assets/icons/icon_magnify.svg" alt="icon search"
-          /></span>
+          <button type="submit">
+            <img src="../../assets/icons/icon_magnify.svg" alt="icon search" />
+          </button>
         </div>
       </form>
     </div>

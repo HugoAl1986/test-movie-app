@@ -1,4 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { MoviesService } from '../service/movies.service';
+import { Movie } from '../model/movie';
+
 
 @Component({
   selector: 'app-navbar',
@@ -7,9 +10,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NavbarComponent implements OnInit {
 
-  constructor() { }
+  constructor(private service:MoviesService) { }
+
+  title:string = '';
 
   ngOnInit(): void {
+  }
+
+  onSubmitForm() {
+   this.service.getMovie(this.title)  
   }
 
 }
