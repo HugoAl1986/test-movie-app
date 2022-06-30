@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Movie } from './model/movie';
 
 @Component({
@@ -8,9 +8,11 @@ import { Movie } from './model/movie';
 })
 export class AppComponent {
 
-  findedMovie:Movie | undefined;
+  foundMovie:Movie;
+  searchDone:boolean=false;
   
-  getFoundMovie(movie : Movie){
-    console.log(movie);
+  getFoundMovie($event:Movie){
+    this.foundMovie = $event;
+    this.searchDone = true;
   }
 }

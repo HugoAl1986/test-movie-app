@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { map } from 'rxjs';
+import { Movie } from 'src/app/model/movie';
 import { MoviesService } from 'src/app/service/movies.service';
 
 
@@ -10,15 +11,25 @@ import { MoviesService } from 'src/app/service/movies.service';
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.scss']
 })
-export class MoviesComponent implements OnInit {
+export class MoviesComponent implements OnChanges  {
 
+  @Input() shareFoundMovie:Movie;
+  @Input() searchResult:Boolean;
+  movieFound:Movie;
   movieList:any = [];
 
   constructor(private service: MoviesService) { }
 
-  ngOnInit(): void {
-    this.service.getMovies().pipe(map(
-      data => this.movieList.push(data)
-    )).subscribe()
-}
+  ngOnChanges() : void{
+    console.log(this.searchResult);
+    if(this.searchResult == false){
+      this.service.getMovies().pipe(map(
+        (data:Movie) => this.movieList.push(data)
+      )).subscribe()
+    }else{
+      this.movieList = [];
+      this.movieList.push(this.shareFoundMovie);
+      
+    }
+  }
 }

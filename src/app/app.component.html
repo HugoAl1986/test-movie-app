@@ -1,7 +1,7 @@
-<app-navbar></app-navbar>
+<app-navbar (newEvent) = "getFoundMovie($event)"></app-navbar>
 <div class="container-main d-flex pt-2">
   <div>
-    <app-movies></app-movies>
+     <app-movies [shareFoundMovie] = "foundMovie" [searchResult] = "searchDone"></app-movies>    
   </div>
   <div>test</div>
 </div>

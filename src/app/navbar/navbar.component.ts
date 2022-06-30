@@ -8,17 +8,17 @@ import { Movie } from '../model/movie';
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent implements OnInit {
+export class NavbarComponent{
 
   constructor(private service:MoviesService) { }
 
+  @Output() newEvent = new EventEmitter<Movie>();
   title:string = '';
-
-  ngOnInit(): void {
-  }
+  movieSearched:Movie;
 
   onSubmitForm() {
-   this.service.getMovie(this.title)  
+    this.service.getMovie(this.title).subscribe((data:any)=>this.movieSearched = data);  
+    this.newEvent.emit(this.movieSearched);
   }
 
 }
