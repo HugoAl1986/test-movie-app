@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'test-movie-app';
+
+  scrollToUp(){
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
 }
