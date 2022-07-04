@@ -13,10 +13,15 @@ export class MoviesComponent implements OnInit {
 
   movieList:Movie[];
   searchMovie:any;
-
+  page: number = 1;
+  totalPage:number;
   constructor(private service: MoviesService) { }
 
   ngOnInit(): void {
     this.movieList = this.service.getMovies();
+    console.log(this.movieList);
+    this.totalPage = this.movieList.length;
+   
   }
+  
 }

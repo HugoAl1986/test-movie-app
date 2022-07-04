@@ -8,9 +8,9 @@
         <div class="input-group">
           <input
             class="form-control"
-            placeholder="Search a movie ..."           
+            placeholder="Search a movie ..."
             [(ngModel)]="searchMovie"
-            [ngModelOptions]="{standalone: true}"
+            [ngModelOptions]="{ standalone: true }"
           />
           <span class="input-group-text" id="basic-addon1"
             ><img src="../../assets/icons/icon_magnify.svg" alt="icon search"
@@ -22,7 +22,10 @@
 </nav>
 <div class="container-fluid pt-2 pe-0">
   <div class="row">
-    <div *ngFor="let movie of movieList | filter:searchMovie" class="col-xs-12 col-sm-4 pb-4">
+    <div
+      *ngFor="let movie of movieList | filter:searchMovie | paginate:  { id:'listing_pagination', itemsPerPage: 10, currentPage: page, totalItems : totalPage }"
+      class="col-xs-12 col-sm-4 pb-4"
+    >
       <div class="card-movie d-flex">
         <div class="card-header p-2 d-flex flex-wrap">
           <div class="card-title ml-1">
@@ -75,4 +78,12 @@
       </div>
     </div>
   </div>
+</div>
+<div>
+  <pagination-controls
+    id="listing_pagination"
+    (pageChange)="page = ($event)"
+    
+  >
+  </pagination-controls>
 </div>
