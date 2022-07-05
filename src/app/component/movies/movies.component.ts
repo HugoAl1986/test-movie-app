@@ -11,13 +11,15 @@ import { FormControl } from '@angular/forms';
 })
 export class MoviesComponent implements OnInit, OnChanges {
 
-  @Input() movieList:Movie[] | Movie | undefined;
+  @Input() movieList:Movie[] | undefined;
   @Input() searchMovie:any;
   page: number = 1;
   totalPage:any = 500;
   constructor(private service: MoviesService) { }
 
   ngOnInit(): void {
+    if(this.movieList != undefined)
+    this.totalPage=this.movieList.length;
   }
   ngOnChanges(){
     console.log(this.searchMovie);
