@@ -13,25 +13,16 @@ export class MoviesComponent implements OnInit, OnChanges {
 
   @Input() movieList:Movie[] | undefined;
   @Input() searchMovie:any;
-  page: number = 1;
-  totalPage:any = 500;
+  page: number;
+
   constructor(private service: MoviesService) { }
 
-  ngOnInit(): void {
-    if(this.movieList != undefined)
-    this.totalPage=this.movieList.length;
+  ngOnInit(): void {  
   }
   ngOnChanges(){
-    console.log(this.searchMovie);
-    if(this.searchMovie !== undefined){
+    if(this.searchMovie != undefined){
       let data = this.service.findMovieByName(this.searchMovie);
-      if(data!= undefined){
-        let newArray = [];
-        newArray.push(data);
-        this.totalPage = newArray.length;
-      }
-    }
-    
+    }  
   }
   
 }
