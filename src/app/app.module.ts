@@ -5,7 +5,7 @@ import { AppComponent } from './app.component';
 import { MoviesComponent } from './component/movies/movies.component';
 import { DetailsMovieComponent } from './details-movie/details-movie.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { PaginationComponent } from './component/pagination/pagination.component'; 
 import {NgxPaginationModule} from 'ngx-pagination'
 
@@ -20,7 +20,6 @@ import {NgxPaginationModule} from 'ngx-pagination'
     BrowserModule,
     AppRoutingModule,
     Ng2SearchPipeModule,
-    FormsModule,
     NgxPaginationModule,
     ReactiveFormsModule
   ],

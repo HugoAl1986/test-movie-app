@@ -5,20 +5,17 @@
         <a class="navbar-brand mt-2 mb-2" href="#">
           <img src="../../assets/icons/logo.svg" alt="Logo" />
         </a>
-        <form class="ms-2 mt-2 mb-2">
-          <div class="input-group">          
-              <input
-                class="form-control"
-                placeholder="Search a movie ..."
-                formControlName = "title"
-              />
-              <button type="submit">
-                <span class="input-group-text" id="basic-addon1"
-                  ><img
-                    src="../../assets/icons/icon_magnify.svg"
-                    alt="icon search"
-                /></span>
-              </button>
+        <form [formGroup]="myGroup" class="ms-2 mt-2 mb-2">
+          <div class="input-group">
+            <input
+              class="form-control"
+              placeholder="Search a movie ..."
+              formControlName="title"
+              [(ngModel)]="inputSearch"
+            />
+            <span class="input-group-text" id="basic-addon1"
+              ><img src="../../assets/icons/icon_magnify.svg" alt="icon search"
+            /></span>
           </div>
         </form>
       </div>

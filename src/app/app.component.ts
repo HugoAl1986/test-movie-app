@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
 import { Movie } from './model/movie';
 import { MoviesService } from './service/movies.service';
@@ -8,14 +8,14 @@ import { MoviesService } from './service/movies.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
-export class AppComponent implements OnInit {
+export class AppComponent implements OnInit{
  initialDatas:Movie[];
  searchMovie:Movie;
  inputSearch:String;
 
- profileForm = new FormGroup({
-  title: new FormControl('')
-});
+ myGroup = new FormGroup({
+  title: new FormControl()
+})
 
  constructor(private service : MoviesService){
  }
@@ -29,8 +29,4 @@ export class AppComponent implements OnInit {
     document.documentElement.scrollTop = 0;
   }
 
-  onSubmit(){
-    console.log(this.profileForm.value);
-   // return this.service.findMovieByName(this.profileForm.value);
-  }
 }
