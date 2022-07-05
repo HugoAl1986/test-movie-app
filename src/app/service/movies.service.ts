@@ -13,4 +13,8 @@ export class MoviesService {
   getMovies():Movie[]{
     return MOVIELIST;
   }
+
+  findMovieByName(title:string):Movie | undefined{
+    return MOVIELIST.find(movie => movie.primaryTitle == title);
+  }
 }

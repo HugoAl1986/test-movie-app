@@ -1,6 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit } from '@angular/core';
 import { MoviesService } from 'src/app/service/movies.service';
 import { Movie } from 'src/app/model/movie';
+import { FormControl } from '@angular/forms';
 
 
 @Component({
@@ -8,14 +9,19 @@ import { Movie } from 'src/app/model/movie';
   templateUrl: './movies.component.html',
   styleUrls: ['./movies.component.scss']
 })
-export class MoviesComponent implements OnInit {
+export class MoviesComponent implements OnInit, OnChanges {
 
-  movieList:Movie[];
-
+  @Input() movieList:Movie[];
+  @Input() searchMovie:any;
+  page: number = 1;
+  totalPage:number;
   constructor(private service: MoviesService) { }
 
   ngOnInit(): void {
-    this.movieList = this.service.getMovies();
+    this.totalPage = this.movieList.length; 
   }
-
+  ngOnChanges(){
+    console.log(this.searchMovie);
+  }
+  
 }

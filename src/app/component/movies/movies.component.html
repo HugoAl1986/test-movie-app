@@ -1,6 +1,9 @@
-<div class="container-fluid pt-2">
+<div class="container-fluid pt-2 pe-0">
   <div class="row">
-    <div *ngFor="let movie of movieList" class="col-xs-12 col-sm-4 pb-4">
+    <div
+      *ngFor="let movie of movieList | paginate:  { id:'listing_pagination', itemsPerPage: 10, currentPage: page, totalItems : totalPage }"
+      class="col-xs-12 col-sm-4 pb-4"
+    >
       <div class="card-movie d-flex">
         <div class="card-header p-2 d-flex flex-wrap">
           <div class="card-title ml-1">
@@ -29,7 +32,9 @@
             </div>
             <div class="card-datas col-2 m-1">
               <span class="text-center d-block">End year</span>
-              <span class="text-center d-block">{{ movie.endYear == "\\N" ? "--" : movie.endYear }}</span>
+              <span class="text-center d-block">{{
+                movie.endYear == "\\N" ? "--" : movie.endYear
+              }}</span>
             </div>
             <div class="card-datas col-2 m-1">
               <span class="text-center d-block">is adult</span>
@@ -51,4 +56,12 @@
       </div>
     </div>
   </div>
+</div>
+<div>
+  <pagination-controls
+    id="listing_pagination"
+    (pageChange)="page = ($event)"
+    
+  >
+  </pagination-controls>
 </div>

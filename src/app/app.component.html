@@ -1,8 +1,41 @@
-<app-navbar></app-navbar>
-<div class="container-main d-flex pt-2">
+<div class="container-main">
+  <nav class="navbar navbar-expand-lg bg-dark bg-gradient">
+    <div class="container-fluid">
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <a class="navbar-brand mt-2 mb-2" href="#">
+          <img src="../../assets/icons/logo.svg" alt="Logo" />
+        </a>
+        <form class="ms-2 mt-2 mb-2">
+          <div class="input-group">          
+              <input
+                class="form-control"
+                placeholder="Search a movie ..."
+                formControlName = "title"
+              />
+              <button type="submit">
+                <span class="input-group-text" id="basic-addon1"
+                  ><img
+                    src="../../assets/icons/icon_magnify.svg"
+                    alt="icon search"
+                /></span>
+              </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </nav>
   <div>
-    <app-movies></app-movies>
+    <app-movies
+      [movieList]="initialDatas"
+      [searchMovie]="inputSearch"
+    ></app-movies>
   </div>
-  <div>test</div>
+  <div class="ps-2 pe-2">
+    <img
+      src="../assets/icons/arrow_up.svg"
+      (click)="scrollToUp()"
+      alt="Icon to scroll top"
+    />
+  </div>
 </div>
 <router-outlet></router-outlet>
