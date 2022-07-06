@@ -64,7 +64,10 @@
 </div>
 <div>
   <pagination-controls
+    class = "my-pagination"
     id="listing_pagination"
     (pageChange)="page = $event"
+    [previousLabel]="labels.previousLabel"
+    [nextLabel]="labels.nextLabel"
   ></pagination-controls>
 </div>

@@ -14,6 +14,11 @@ export class MoviesComponent{
   @Input() searchMovie:any;
   page: number;
 
+  labels:any = {
+    previousLabel : '<',
+    nextLabel :'>'
+  }
+
   constructor(private service: MoviesService) { }
   
 }

@@ -53,3 +53,14 @@
     padding: 0 10px;
     background-color:$bg-color-grey;
 }
+.my-pagination {
+    display:flex;
+    justify-content:center;
+}
+.my-pagination ::ng-deep {
+    .pagination-previous a:before,.ngx-pagination .disabled:before{
+    content:'';
+  }
+}
+
+  
