@@ -25,4 +25,9 @@ export class MoviesService {
       find((data:Movie) => data.primaryTitle == title)
     );
   }
+
+  findMovieByName(title:string):Movie[] | undefined{
+    console.log(MOVIELIST.filter(movie => movie.primaryTitle.startsWith(title)))
+    return MOVIELIST.filter(movie => movie.primaryTitle.startsWith(title));
+  }
 }
