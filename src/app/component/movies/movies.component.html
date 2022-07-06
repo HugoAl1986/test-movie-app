@@ -1,7 +1,12 @@
 <div class="container-fluid pt-2 pe-0">
   <div class="row">
     <div
-      *ngFor="let movie of movieList | filter:searchMovie |paginate:  { id:'listing_pagination', itemsPerPage: 20, currentPage: page }"
+      *ngFor="
+        let movie of movieList
+          | filter: searchMovie
+          | paginate
+            : { id: 'listing_pagination', itemsPerPage: 20, currentPage: page }
+      "
       class="col-xs-12 col-sm-4 pb-4"
     >
       <div class="card-movie d-flex">
@@ -60,7 +65,6 @@
 <div>
   <pagination-controls
     id="listing_pagination"
-    (pageChange)="page = ($event)"    
-  >
-  </pagination-controls>
+    (pageChange)="page = $event"
+  ></pagination-controls>
 </div>
