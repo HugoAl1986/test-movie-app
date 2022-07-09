@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
 import { MOVIELIST } from '../mock-movie-list';
 import { Movie } from '../model/movie';
-import { from, find, Observable } from 'rxjs';
 
 
 @Injectable({
@@ -9,21 +8,10 @@ import { from, find, Observable } from 'rxjs';
 })
 export class MoviesService {
 
-
   constructor() { }
 
-  movieList = from(MOVIELIST);
-
-  
-
-  getMovies():Observable<Movie>{
-    return this.movieList;
-  }
-
-  getMovie(title:string):Observable<Movie | undefined>{
-    return this.movieList.pipe(
-      find((data:Movie) => data.primaryTitle == title)
-    );
+  getMovies():Movie[]{
+    return MOVIELIST;
   }
 
   findMovieByName(title:string):Movie[] | undefined{
