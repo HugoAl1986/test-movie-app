@@ -53,14 +53,35 @@
     padding: 0 10px;
     background-color:$bg-color-grey;
 }
-.my-pagination {
+.my-pagination ::ng-deep {
     display:flex;
     justify-content:center;
+    align-items: center;
+    nav{
+        display:flex;
+        ul{
+            margin:1rem 0;
+        }
+    }
+    .pagination-previous a:before,.pagination-next a:after, .ngx-pagination .disabled:before,.ngx-pagination .disabled:after {
+        content:'';
+    }
+    .ngx-pagination{
+        .pagination-next a, .pagination-previous a{
+            color:black !important;
+        }
+        .current{
+            background-color:inherit;
+            color:black;
+        }
+        a:not([href]):not([class]), a:not([href]):not([class]):hover{
+            color:$color-button;
+            background-color: $bg-color-grey
+        }
+    }    
 }
-.my-pagination ::ng-deep {
-    .pagination-previous a:before,.ngx-pagination .disabled:before{
-    content:'';
-  }
+.pagination-style{
+    background-color: $bg-color-grey;
 }
 
   
