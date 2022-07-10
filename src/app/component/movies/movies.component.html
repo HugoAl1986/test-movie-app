@@ -15,11 +15,17 @@
             <h3 class="mb-0">{{ movie.primaryTitle }}</h3>
             <p>Original title : {{ movie.originalTitle }}</p>
           </div>
-          <img
-            class="img-responsive align-self-start"
-            src="../../../assets/icons/icon_pencil.svg"
-            alt="icon modify"
-          />
+          <button
+            type="button"
+            class="btn btn-primary"
+            (click)="openModalWithComponent()"
+          >
+            <img
+              class="img-responsive align-self-start"
+              src="../../../assets/icons/icon_pencil.svg"
+              alt="icon modify"
+            />
+          </button>
           <div class="card-content col-12 d-flex flex-wrap">
             <div class="card-datas col-2 m-1">
               <span class="text-center d-block">ID</span>
@@ -64,7 +70,7 @@
 </div>
 <div class="container-fluid pagination-style">
   <pagination-controls
-    class = "my-pagination"
+    class="my-pagination"
     id="listing_pagination"
     (pageChange)="page = $event"
     [previousLabel]="labels.previousLabel"

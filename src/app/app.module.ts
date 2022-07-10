@@ -6,7 +6,9 @@ import { MoviesComponent } from './component/movies/movies.component';
 import { DetailsMovieComponent } from './details-movie/details-movie.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { ReactiveFormsModule } from '@angular/forms';
-import {NgxPaginationModule} from 'ngx-pagination'
+import {NgxPaginationModule} from 'ngx-pagination';
+import { TooltipModule} from 'ngx-bootstrap/tooltip';
+import { ModalModule} from 'ngx-bootstrap/modal';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,9 @@ import {NgxPaginationModule} from 'ngx-pagination'
     AppRoutingModule,
     Ng2SearchPipeModule,
     NgxPaginationModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    TooltipModule.forRoot(),
+    ModalModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
