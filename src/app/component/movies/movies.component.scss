@@ -1,4 +1,5 @@
 @import "../../sass/variables_custom";
+@import"../../sass/custom_button";
 .navbar{
     padding:0;
 }
@@ -10,6 +11,7 @@
 
 .card-movie{
     box-shadow: 0px 0px 11px 0 #E8E5E5;
+   
 }
 
 .card-title{
@@ -83,5 +85,4 @@
 .pagination-style{
     background-color: $bg-color-grey;
 }
-
   

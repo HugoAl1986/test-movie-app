@@ -23,7 +23,8 @@ export class MoviesComponent{
 
   constructor(private service: MoviesService, private modalService: BsModalService) { }
 
-  openModalWithComponent() {
+  openModalWithComponent(data:Movie) {
+    console.log(data);
     const initialState: ModalOptions = {
       initialState: {
         list: [
