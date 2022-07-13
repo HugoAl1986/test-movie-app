@@ -1,14 +1,54 @@
 <div class="modal-header">
-    <h4 class="modal-title pull-left">Editing</h4>
-    <button type="button" class="p-1"(click)="bsModalRef.hide()">
-      <img src="../../assets/icons/X_icon .svg" class="img-responsive" alt="icon close">
-    </button>
-  </div>
-  <div class="modal-body">
-    <ul *ngIf="list.length">
-      <li *ngFor="let item of list">{{item}}</li>
-    </ul>
-  </div>
-  <div class="modal-footer">
-    <button type="button" class="btn btn-default" (click)="bsModalRef.hide()">{{closeBtnName}}</button>
-  </div>
+  <h4 class="modal-title pull-left pt-2 pb-2">Editing</h4>
+  <button type="button" class="p-1" (click)="bsModalRef.hide()">
+    <img
+      src="../../assets/icons/X_icon .svg"
+      class="img-responsive mb-4 p-2"
+      alt="icon close"
+    />
+  </button>
+</div>
+<div class="modal-body ps-5 pe-5">
+  <form class="d-flex flex-column justify-content-start">
+    <div class="d-flex">
+      <label for="Minutes" class="col-sm-2 col-form-label">Minutes</label>
+      <div class="col-sm-10 div-input">
+        <input type="text" id="minutes" class="form-control" />
+      </div>
+    </div>
+    <div class="d-flex">
+      <label for="StartYear" class="col-sm-2 col-form-label">Start Year</label>
+      <div class="col-sm-10 div-input">
+        <input type="text" class="form-control" />
+      </div>
+    </div>
+    <div class="d-flex">
+      <label for="EndYear" class="col-sm-2 col-form-label">End Year</label>
+      <div class="col-sm-10 div-input">
+        <input type="text" class="form-control" />
+      </div>
+    </div>
+    <div class="d-flex">
+      <label for="Genres" class="col-sm-2 col-form-label">Genres</label>
+      <div class="col-sm-10 div-input">
+        <input type="text" class="form-control" />
+      </div>
+    </div>
+  </form>
+</div>
+<div class="d-flex pt-2 pb-4 justify-content-around modal_footer">
+  <button
+    type="button"
+    class="btn btn-primary btn-sm"
+    (click)="bsModalRef.hide()"
+  >
+    OK
+  </button>
+  <button
+    type="button"
+    class="btn btn-primary btn-sm"
+    (click)="bsModalRef.hide()"
+  >
+    Cancel
+  </button>
+</div>

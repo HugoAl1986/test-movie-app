@@ -29,7 +29,11 @@
     }
 }
 .card-header{
-    flex-basis:70%
+    button{
+        all:unset;
+        cursor:pointer;
+        height:fit-content;
+    } 
     img{
         flex-grow:1;
         height:15px;
