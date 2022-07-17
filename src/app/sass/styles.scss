@@ -11,9 +11,11 @@ body{
 }
 
 .modal{
-    --bs-modal-width:430px;
+    --bs-modal-width:430px;   
     .modal-content{
         border-radius:0;
+        border:none;
+        box-shadow: $shadow;
         .modal-header{
             padding:0;
             display:flex !important;
@@ -46,12 +48,32 @@ body{
                     width:75%;
                 }
             }
+            .form-control{
+                box-shadow: none;
+            }
             input[type=text]{
                 border-radius:0;
                 border-width: 2px;
-                border-color:$color-button;
+                border-color:$color-input;
                 width:100%;
                 padding:0;
+            }
+            input[type=radio]{
+                width:15px;
+                height:15px;
+                border-radius:0;
+                border-color:$color-input;
+                border-width:2px;
+                padding:0;
+            }
+            input[type=radio]::before{
+                content:"";
+            }
+            input[type=radio]:checked::before{
+                content:"x";
+                position:relative;
+                top:-8px;
+                left:2px;
             }
             #minutes{
                 width:50%;
