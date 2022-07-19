@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 @import 'bootstrap_custom.scss';
+@import "../../../node_modules/bootstrap-icons/font/bootstrap-icons.scss";
 @import './variables_custom';
 @import '../sass/custom_button';
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400&display=swap');
@@ -51,12 +52,22 @@ body{
             .form-control{
                 box-shadow: none;
             }
-            input[type=text]{
+            input[type=text], #button-basic{
                 border-radius:0;
                 border-width: 2px;
                 border-color:$color-input;
                 width:100%;
                 padding:0;
+                background-color:#fff;
+                height:25px;
+            }
+            select{
+                border-radius:0;
+                padding:0;
+                height:25px;
+                border-color:$color-input;
+                border-width:2px;
+                box-shadow: none;
             }
             input[type=radio]{
                 width:15px;

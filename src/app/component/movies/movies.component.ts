@@ -24,20 +24,12 @@ export class MoviesComponent{
   constructor(private service: MoviesService, private modalService: BsModalService) { }
 
   openModalWithComponent(data:Movie) {
-    console.log(data);
     const initialState: ModalOptions = {
       initialState: {
-        list: [
-          'Open a modal with component',
-          'Pass your data',
-          'Do something else',
-          '...'
-        ],
-        title: 'Modal with component'
+        data
       }
     };
     this.bsModalRef = this.modalService.show(DetailsMovieComponent, initialState);
-    this.bsModalRef.content.closeBtnName = 'Close';
   }
   
 }
