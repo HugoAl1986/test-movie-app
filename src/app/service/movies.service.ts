@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { MOVIELIST } from '../mock-movie-list';
 import { Movie } from '../model/movie';
+import * as _ from 'lodash';
 
 
 @Injectable({
@@ -14,8 +15,17 @@ export class MoviesService {
     return MOVIELIST;
   }
 
-  findMovieByName(title:string):Movie[] | undefined{
-    console.log(MOVIELIST.filter(movie => movie.primaryTitle.startsWith(title)))
-    return MOVIELIST.filter(movie => movie.primaryTitle.startsWith(title));
-  }
+  updateMovie(movie:Movie){
+    console.log(movie);
+   for(let index = 0; index < MOVIELIST.length; index ++){
+    if(MOVIELIST[index].id == movie.id){
+      MOVIELIST[index] = movie;
+      break
+    }
+   }
+   
+   }
+
+  
+  
 }

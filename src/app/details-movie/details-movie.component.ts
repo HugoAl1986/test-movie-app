@@ -2,6 +2,8 @@ import { Component, OnInit} from '@angular/core';
 import { BsModalRef} from 'ngx-bootstrap/modal';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { ModalOptions } from 'ngx-bootstrap/modal';
+import { MoviesService } from '../service/movies.service';
+import { Movie } from '../model/movie';
 
 
 @Component({
@@ -17,7 +19,7 @@ export class DetailsMovieComponent implements OnInit{
   profileForm:FormGroup;
   years:Array<number> = [];
 
-  constructor(public bsModalRef: BsModalRef,public options: ModalOptions) { 
+  constructor(public bsModalRef: BsModalRef,public options: ModalOptions, private service :MoviesService) { 
     for(let i=1870;i<=2000;i++){
       this.years.push(i);
     }
@@ -27,18 +29,26 @@ export class DetailsMovieComponent implements OnInit{
 
   ngOnInit(): void {
     this.profileForm = new FormGroup({
-      runtimeMinutes: new FormControl(this.movie?.runtimeMinutes,Validators.required),
+      id:new FormControl(this.movie?.id),
+      titleType:new FormControl(this.movie?.titleType),
+      primaryTitle:new FormControl(this.movie?.titleType),
+      originalTitle:new FormControl(this.movie?.titleType),
+      isAdult:new FormControl(this.movie?.isAdult, Validators.required),
       startYear: new FormControl(this.movie?.startYear),
       endYear: new FormControl(parseInt(this.movie?.endYear),[
         Validators.min(parseInt(this.movie?.startYear))
       ]),
-      genres: new FormControl(this.movie?.genres, Validators.required),
-      isAdult:new FormControl(this.movie?.isAdult, Validators.required)
+      runtimeMinutes: new FormControl(this.movie?.runtimeMinutes,Validators.required),
+      genres: new FormControl(this.movie?.genres, Validators.required)      
     }); 
   }
 
   onSubmit(){   
-      console.log(this.profileForm.value); 
+      this.service.updateMovie(this.profileForm.value);
+  }
+
+  changeIsAdult(e:any){
+      this.profileForm.patchValue({isAdult:e.target.value})  
   }
 }
 

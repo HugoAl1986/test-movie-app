@@ -17,9 +17,9 @@
     <div class="d-flex">
       <label for="Minutes" class="col-sm-2 col-form-label">Is Adult</label>
       <div class="col-sm-10 d-flex flex-row flex align-items-center">
-        <input type="radio" name="isAdult" value="yes" [checked]="profileForm.value.isAdult == '0' ? false : true" class="form-control me-1" />
+        <input type="radio" name="isAdult" (change)="changeIsAdult($event)" value="1" [checked]="profileForm.value.isAdult == '1' ? true : false" class="form-control me-1" />
         <span class="me-5">Yes</span>
-        <input type="radio" name="isAdult" value="No" [checked]="profileForm.value.isAdult == '0' ? true : false" class="form-control me-1" />
+        <input type="radio" name="isAdult" (change)="changeIsAdult($event)" value="0" [checked]="profileForm.value.isAdult == '0' ? true : false" class="form-control me-1" />
         <span>No</span>
       </div>
     </div>
