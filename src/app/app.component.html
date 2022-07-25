@@ -1,7 +1,7 @@
-<div class="container-main">
-  <nav class="navbar navbar-expand-lg bg-dark bg-gradient">
-    <div class="container-fluid">
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+<div class="container-main d-flex flex-column">
+  <nav class="navbar navbar-expand-lg bg-dark bg-gradient pt-0 pb-0">
+    <div class="container-fluid ps-3 pe-3">
+      <div class="collapse navbar-collapse d-flex" id="navbarSupportedContent">
         <a class="navbar-brand mt-2 mb-2" href="#">
           <img src="../../assets/icons/logo.svg" alt="Logo" />
         </a>
@@ -9,30 +9,39 @@
           <div class="input-group">
             <input
               class="form-control"
-              placeholder="Search a movie ..."
+              placeholder="{{ 'SEARCH_MOVIE' | translate }}"
               formControlName="title"
               [(ngModel)]="inputSearch"
             />
             <span class="input-group-text" id="basic-addon1"
-              ><img src="../../assets/icons/icon_magnify.svg" alt="icon search"
+              ><img
+                src="../../assets/icons/icon_magnify.svg"
+                alt="{{ 'ICON_SEARCH' | translate }}"
             /></span>
           </div>
         </form>
+        <div class="d-flex justify-content-end">
+          <img
+            src="../assets/icons/flag_fr.svg"
+            class="p-1"
+            [ngStyle]="{'opacity':opacityFr}"
+            (click)="chooseLanguage(langFr)"
+            alt="{{ 'ICON_FRANCE' | translate }}"
+          />
+          <img
+            src="../assets/icons/flag_usa.svg"
+            class="p-1"
+            [ngStyle]="{'opacity':opacityUs}"
+            (click)="chooseLanguage(langUs)"
+            alt="{{ 'ICON_USA' | translate }}"
+          />
+        </div>
       </div>
     </div>
   </nav>
-  <div>
-    <app-movies
-      [movieList]="initialDatas"
-      [searchMovie]="inputSearch"
-    ></app-movies>
-  </div>
-  <div class="ps-2 pe-2">
-    <img
-      src="../assets/icons/arrow_up.svg"
-      (click)="scrollToUp()"
-      alt="Icon to scroll top"
-    />
-  </div>
+  <app-movies
+    [movieList]="initialDatas"
+    [searchMovie]="inputSearch"
+  ></app-movies>
 </div>
 <router-outlet></router-outlet>

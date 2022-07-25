@@ -1,4 +1,5 @@
 @import "../../sass/variables_custom";
+@import"../../sass/custom_button";
 .navbar{
     padding:0;
 }
@@ -9,7 +10,8 @@
 
 
 .card-movie{
-    box-shadow: 0px 0px 11px 0 #E8E5E5;
+    box-shadow: $shadow;
+   
 }
 
 .card-title{
@@ -27,7 +29,11 @@
     }
 }
 .card-header{
-    flex-basis:70%
+    button{
+        all:unset;
+        cursor:pointer;
+        height:fit-content;
+    } 
     img{
         flex-grow:1;
         height:15px;
@@ -35,6 +41,9 @@
 }
 .card-content{
     flex-grow:4;
+    .col-2{
+        flex-basis: fit-content;
+    }
     .card-datas{
         span:first-child{
             font-weight:$font-weight-thin;
@@ -45,8 +54,7 @@
         span:last-child{
             font-weight:$font-weight-light;
             font-size:11pt;
-        }
-        
+        }   
     }
 }
 .card-picture{
@@ -83,5 +91,4 @@
 .pagination-style{
     background-color: $bg-color-grey;
 }
-
   

@@ -1,0 +1,20 @@
+{
+    "SEARCH_MOVIE" : "Search a movie ...",
+    "PRIMARY_TITLE" : "Primary Title",
+    "ORIGINAL_TITLE": "Original Title",
+    "START_YEAR" : "Start year",
+    "END_YEAR" : "End year",
+    "IS_ADULT" : "Adult",
+    "ICON_POSTER" : "Icon poster",
+    "ICON_SEARCH": "Icon search",
+    "ICON_MODIFY" : "Icon modify",
+    "EDITIND" : "Editing",
+    "ICON_CLOSE" : "Icon close",
+    "ICON_FRANCE" : "Icon flagFrance",
+    "ICON_USA" : "Icon flag USA",
+    "ICON_SCROLL" : "Icon to scroll top",
+    "ADULT_YES" : "Oui",
+    "ADULT_NO" : "Non",
+    "ERROR_END_YEAR" : "The end date cannot be less than the start date !!",
+    "BUTTON_CANCEL" : "Annuler"
+}
