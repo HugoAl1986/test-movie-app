@@ -11,7 +11,12 @@ import { TooltipModule} from 'ngx-bootstrap/tooltip';
 import { ModalModule, BsModalService } from 'ngx-bootstrap/modal';
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+export function httpTranslateLoaderFactory(http: HttpClient) {
+  return new TranslateHttpLoader(http);
+}
 
 
 @NgModule({
@@ -29,7 +34,15 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     TooltipModule.forRoot(),
     ModalModule.forRoot(),
     BrowserAnimationsModule,
+    HttpClientModule,
     BsDropdownModule.forRoot(),
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: httpTranslateLoaderFactory,
+        deps: [HttpClient]
+      }
+    })
     
   ],
   providers: [BsModalService],

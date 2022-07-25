@@ -41,6 +41,9 @@
 }
 .card-content{
     flex-grow:4;
+    .col-2{
+        flex-basis: fit-content;
+    }
     .card-datas{
         span:first-child{
             font-weight:$font-weight-thin;
@@ -51,8 +54,7 @@
         span:last-child{
             font-weight:$font-weight-light;
             font-size:11pt;
-        }
-        
+        }   
     }
 }
 .card-picture{
