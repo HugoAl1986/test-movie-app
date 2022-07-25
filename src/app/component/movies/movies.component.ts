@@ -31,5 +31,10 @@ export class MoviesComponent{
     };
     this.bsModalRef = this.modalService.show(DetailsMovieComponent, initialState);
   }
+
+  scrollToUp(){
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+  }
   
 }

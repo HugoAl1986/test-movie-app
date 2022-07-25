@@ -1,19 +1,21 @@
-<div class="container-fluid p-4 pe-0">
+<div class="container-fluid p-3 d-flex">
   <div class="row">
     <div
       *ngFor="
         let movie of movieList
           | filter: searchMovie
           | paginate
-            : { id: 'listing_pagination', itemsPerPage: 20, currentPage: page }
+            : { id: 'listing_pagination', itemsPerPage: 18, currentPage: page }
       "
-      class="col-xs-12 col-sm-4 pb-4"
+      class="col-xs-12 col-sm-4"
     >
       <div class="card-movie d-flex">
         <div class="card-header p-2 d-flex flex-wrap">
           <div class="card-title ml-1">
             <h3 class="mb-0">{{ movie.primaryTitle }}</h3>
-            <p>{{'ORIGINAL_TITLE' | translate}} : {{ movie.originalTitle }}</p>
+            <p>
+              {{ "ORIGINAL_TITLE" | translate }} : {{ movie.originalTitle }}
+            </p>
           </div>
           <button
             type="button"
@@ -23,7 +25,7 @@
             <img
               class="img-responsive align-self-start"
               src="../../../assets/icons/icon_pencil.svg"
-              alt="{{'ICON_MODIFY' | translate}}"
+              alt="{{ 'ICON_MODIFY' | translate }}"
             />
           </button>
           <div class="card-content col-12 d-flex flex-wrap">
@@ -38,17 +40,23 @@
               }}</span>
             </div>
             <div class="card-datas col-2 m-1">
-              <span class="text-center d-block pe-2 ps-2">{{'START_YEAR' |translate}}</span>
+              <span class="text-center d-block pe-2 ps-2">{{
+                "START_YEAR" | translate
+              }}</span>
               <span class="text-center d-block">{{ movie.startYear }}</span>
             </div>
             <div class="card-datas col-2 m-1">
-              <span class="text-center d-block pe-2 ps-2">{{'END_YEAR' |translate}}</span>
+              <span class="text-center d-block pe-2 ps-2">{{
+                "END_YEAR" | translate
+              }}</span>
               <span class="text-center d-block">{{
                 movie.endYear == "\\N" ? "--" : movie.endYear
               }}</span>
             </div>
             <div class="card-datas col-2 m-1">
-              <span class="text-center d-block pe-2 ps-2">{{'IS_ADULT' |translate}}</span>
+              <span class="text-center d-block pe-2 ps-2">{{
+                "IS_ADULT" | translate
+              }}</span>
               <span class="text-center d-block">{{ movie.isAdult }}</span>
             </div>
             <div class="card-datas col-2 m-1">
@@ -61,13 +69,21 @@
           <img
             class="img-responsive"
             src="../../../assets/icons/icon_poster.svg"
-            alt="{{'ICON_POSTER' |translate}}"
+            alt="{{ 'ICON_POSTER' | translate }}"
           />
         </div>
       </div>
     </div>
   </div>
+  <div class="ps-3 align-self-end">
+    <img
+      src="../assets/icons/arrow_up.svg"
+      (click)="scrollToUp()"
+      alt="{{ 'ICON_SCROLL' | translate }}"
+    />
+  </div>
 </div>
+
 <div class="container-fluid pagination-style">
   <pagination-controls
     class="my-pagination"
